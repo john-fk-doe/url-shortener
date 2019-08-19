@@ -1,0 +1,9 @@
+table.table.table-striped
+  tr
+    th IP
+    th Link Id
+  - @visits.each do |visit|
+    tr
+      td= visit.ip
+      td= visit.location
+

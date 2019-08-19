@@ -1,0 +1,13 @@
+.container.col-md-6
+  .text-center
+    h2 Welcome at MiniShortener!
+    h5.font-italic  Simple & Fast Way to make it short!
+    = form_with(model: @link, local: true) do |form|
+      .form-group
+        = form.text_field :original, placeholder: 'Enter URL you want to shorten...', class: 'form-control'
+        - if @link.errors.any?
+          .help-block.text-left= @link.errors.full_messages.first
+
+      .form-group
+        .actions
+          = form.submit 'Get the Link!', class: 'btn btn-info'

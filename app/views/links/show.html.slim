@@ -1,0 +1,8 @@
+.container.col-md-6
+  .text-center
+    h3 Congrats! Your link has been shortened!
+    p
+      | Your new link is &nbsp;
+      span "#{request.base_url}/#{@link.short}"
+    .form-group
+      = link_to 'Shorten More!', links_path, class: 'btn btn-info btn-sm'
