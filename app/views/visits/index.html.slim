@@ -1,9 +1,13 @@
-table.table.table-striped
+table.table.table-hover
   tr
+    th URL
     th IP
-    th Link Id
+    th Location
+    th When Visited
   - @visits.each do |visit|
     tr
+      td= visit.link.original
       td= visit.ip
       td= visit.location
+      td= visit.created_at
 

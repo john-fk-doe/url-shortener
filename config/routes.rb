@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :links, only: [:index, :create]
   get '/links/:url', to: 'links#show', as: 'link'
   resources :visits, only: [:index]
+  get '/statistics', to: 'visits#stats'
 
   get '/:url', to: 'links#visit'
 end

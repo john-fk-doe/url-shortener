@@ -1,0 +1,25 @@
+.container
+  .row.col-md-6
+  p.lead.text-muted #{@total_visits} total | #{@uniq_visits} uniq visits
+  .row
+    .col-md-6
+      h4.text-info TOP 10 Countries
+      table.table.table-condensed
+        tr
+          th Location
+          th Visits
+        - @grouped_by_location.first(10).each do |location, visits_count|
+          tr
+            td= location
+            td= visits_count
+
+    .col-md-6
+      h4.text-info 10 Most Visited Links
+      table.table.table-condensed
+        tr
+          th Link
+          th Visits
+        - @grouped_by_link.first(10).each do |link, visits_count|
+          tr
+            td= link.original
+            td= visits_count
