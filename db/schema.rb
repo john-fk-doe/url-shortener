@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_100857) do
+ActiveRecord::Schema.define(version: 2019_08_21_035236) do
 
   create_table "links", force: :cascade do |t|
     t.string "short"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_100857) do
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
     t.index ["link_id"], name: "index_visits_on_link_id"
   end
 

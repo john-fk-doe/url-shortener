@@ -19,7 +19,8 @@ class LinksController < ApplicationController
   end
 
   def visit
-    Visit.create!(ip: request.remote_ip, link: @link)
+    visit = Visit.create!(ip: request.remote_ip, link: @link)
+    GeoWorker.perform_async(visit.id, 3)
 
     redirect_to @link.original
   end
