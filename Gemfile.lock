@@ -83,6 +83,8 @@ GEM
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
+    faker (2.1.2)
+      i18n (>= 0.8)
     ffi (1.11.1)
     geocoder (1.5.1)
     globalid (0.4.2)
@@ -230,6 +232,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  faker
   geocoder
   jbuilder (~> 2.5)
   jquery-rails
