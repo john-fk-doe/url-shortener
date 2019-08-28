@@ -6,8 +6,8 @@ table.table.table-hover
     th When Visited
   - @visits.each do |visit|
     tr
-      td= visit.link.original
+      td= link_to redirect_path(visit.link.short)
       td= visit.ip
       td= visit.location
-      td= visit.created_at
+      td= visit.created_at.getlocal.to_s(:short)
 

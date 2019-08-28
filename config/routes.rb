@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :visits, only: [:index]
   get '/statistics', to: 'visits#stats'
 
-  get '/:url', to: 'links#visit'
+  get '/:url', to: 'links#visit', as: 'redirect'
 end

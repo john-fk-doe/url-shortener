@@ -1,12 +1,12 @@
 class VisitsController < ApplicationController
   def index
-    @visits = Visit.order('created_at DESC').limit(100).includes(:link)
+    @visits = Visit.includes(:link).last(100).reverse
   end
 
   def stats
     @total_visits = Visit.count
-    @uniq_visits = Visit.pluck(:link_id).uniq.count
-    @grouped_by_location= Visit.group(:location).count.sort_by {|k,v| v}.reverse
-    @grouped_by_link = Visit.group(:link).count.sort_by {|k,v| v}.reverse
+    @uniq_visits = Visit.distinct.pluck(:link_id).count
+    @top_countries = Visit.by_country.most_popular
+    @top_links = Visit.by_link.most_popular
   end
 end

@@ -8,10 +8,7 @@
         tr
           th Location
           th Visits
-        - @grouped_by_location.first(10).each do |location, visits_count|
-          tr
-            td= location
-            td= visits_count
+        = render partial: 'stat', collection: @top_countries, as: :stat
 
     .col-md-6
       h4.text-info 10 Most Visited Links
@@ -19,7 +16,4 @@
         tr
           th Link
           th Visits
-        - @grouped_by_link.first(10).each do |link, visits_count|
-          tr
-            td= link.original
-            td= visits_count
+        = render partial: 'stat', collection: @top_links, as: :stat
