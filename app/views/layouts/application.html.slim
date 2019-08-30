@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title
+      | UrlShortener
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      .container
+        nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          = link_to 'Shorten It!', root_path, class: 'navbar-brand'
+          .navbar.font-italic.text-secondary Simple & Fast Way to make URLs short!
+          button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"]
+            span.navbar-toggler-icon
+          #navbarNavDropdown.collapse.navbar-collapse.justify-content-end
+            ul.navbar-nav
+              li.nav-item class=toggle_active(root_path)
+                = link_to 'Home', root_path, class: 'nav-link'
+              li.nav-item class=toggle_active(visits_path)
+                = link_to 'Visits', visits_path, class: 'nav-link'
+              li.nav-item class=toggle_active(statistics_path)
+                = link_to 'Statistics', statistics_path, class: 'nav-link'
+      .container= yield
