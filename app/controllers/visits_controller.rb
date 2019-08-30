@@ -1,6 +1,6 @@
 class VisitsController < ApplicationController
   def index
-    @visits = Visit.includes(:link).last(100).reverse
+    @visits = Rails.cache.fetch(:last_100, expires_in: 10.minutes) { Visit.last_n_with_links(100) }
   end
 
   def stats
